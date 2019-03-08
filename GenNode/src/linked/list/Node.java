@@ -4,6 +4,12 @@ public class Node<E> {
 	private E data;
 	private Node<E> link;
 	
+	/**
+	 * Initializes this node data to initiaData and link to initialLink
+	 *  
+	 * @param initialData
+	 * @param initialLink
+	 */
 	public Node(E initialData, Node<E> initialLink) {
 		
 		data = initialData;
