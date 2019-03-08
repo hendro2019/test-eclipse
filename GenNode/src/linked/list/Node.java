@@ -5,7 +5,7 @@ public class Node<E> {
 	private Node<E> link;
 	
 	/**
-	 * Initializes this node data to initiaData and link to initialLink
+	 * Initializes this Node's data to initiaData and this Node"s link to initialLink.
 	 *  
 	 * @param initialData
 	 * @param initialLink
