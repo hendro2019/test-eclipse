@@ -49,6 +49,43 @@ public class Tree<E> {
 			add(direction.getChildOf(currNode), newNode, pathStack);
 		}
 	}
+	
+	public void addAt(E item, int index) {
+		BTNode<E> newNode = new BTNode<E>(item, null, null);
+		if (index == 0 && numNodes == 0) {
+			root = new BTNode<E>(item, null, null);
+			numNodes++;
+		}
+		else if (index == 0) {
+			root = new BTNode<E>(item, root.getLeft(), root.getRight());
+		}
+		else {
+			if (numNodes == 0) {
+				root = new BTNode<E>(null, null, null);
+			}
+			addAt(root, newNode, getPath(index));
+			numNodes++;
+		}
+		
+	}
+	@SuppressWarnings("unchecked")
+	private void addAt(BTNode<E> currNode, BTNode<E> newNode, Stack<PathDirection> pathStack) {
+		// TODO Auto-generated method stub
+		PathDirection direction = pathStack.pop();
+		if (direction.getChildOf(currNode) == null)
+			direction.setAsChild(currNode, new BTNode<E>(null, null, null));
+		if (pathStack.isEmpty()) {
+			if (direction.getChildOf(currNode) != null) {
+				newNode.setLeft(direction.getChildOf(currNode).getLeft());
+				newNode.setRight(direction.getChildOf(currNode).getRight());
+				numNodes--;
+			}
+			direction.setAsChild(currNode, newNode);
+		} else {
+			addAt(direction.getChildOf(currNode), newNode, pathStack);
+		}
+		
+	}
 
 	public static Stack<PathDirection> getPath(int i) {
 		return getPath(new Stack<PathDirection>(), i);
