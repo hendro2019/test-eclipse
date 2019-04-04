@@ -71,7 +71,7 @@ public class BTNode<E> {
 		
 		// print indentation and depth of curr node.
 		for(i = 1; i <= depth; i++)
-			System.out.println("   ");
+			System.out.print("   ");
 		System.out.println(data);
 		
 		//print left subtree (of dash if there is no left but there is a right)
@@ -79,7 +79,7 @@ public class BTNode<E> {
 			left.print(depth + 1);
 		else if (right != null) {
 			for(i = 1; i <= depth + 1; i++)
-				System.out.println("   ");
+				System.out.print("   ");
 			System.out.println("--");
 		}
 		
@@ -88,14 +88,14 @@ public class BTNode<E> {
 			right.print(depth + 1);
 		else if (left != null) {
 			for(i = 1; i <= depth + 1; i++)
-				System.out.println("   ");
+				System.out.print("   ");
 			System.out.println("--");
 		}
 	}
 	
 	public BTNode<E> removeLeftMost() {
 		if (left == null)
-			return left;
+			return right;
 		else {
 			left = left.removeLeftMost();
 			return this;
@@ -104,7 +104,7 @@ public class BTNode<E> {
 	
 	public BTNode<E> removeRightMost() {
 		if (right == null)
-			return right;
+			return left;
 		else {
 			right = right.removeRightMost();
 			return this;
