@@ -1,2 +1,6 @@
 # test-eclipse
-my first project
+Generic Node classes with accompanying ADT's:
+LinkedList,
+Stack,
+Queue,
+Binary Tree
